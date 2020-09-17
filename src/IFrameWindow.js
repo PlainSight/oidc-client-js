@@ -108,6 +108,7 @@ export class IFrameWindow {
         url = url || window.location.href;
         if (url) {
             Log.debug("IFrameWindow.notifyParent: posting url message to parent");
+			console.log('Posting message to parent "' + url + '" at location: "' + location.protocol + "//" + location.host + '"');
             window.parent.postMessage(url, location.protocol + "//" + location.host);
         }
     }
