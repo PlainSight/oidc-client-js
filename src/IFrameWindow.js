@@ -84,8 +84,9 @@ export class IFrameWindow {
 
     _message(e) {
         Log.debug("IFrameWindow.message");
-		console.log('Received message from child: origin = ' + e.origin + ', source = ' + e.source + ', data = ' + e.data);
-		console.log('Must have: origin == ' + this._origin  + ', source == ' + this._frame.contentWindow + ' and data not falsey');
+		console.log('Received message from child: origin = ' + e.origin + ', data = ' + e.data);
+		console.log('Must have: origin == ' + this._origin  + ', source is the same and data not falsey');
+		console.log('Source is same: ' + e.source === this._frame.contentWindow);
 
         if (this._timer &&
             e.origin === this._origin &&
